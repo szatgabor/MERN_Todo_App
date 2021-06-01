@@ -3,10 +3,8 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000
 const mongoose = require("mongoose")
-const createTodo = require("./controllers/todoController")
-const getTodos = require("./controllers/todoController")
-const updateTodo = require("./controllers/todoController")
-const deleteTodo = require("./controllers/todoController")
+const todoFunctions = require("./controllers/todoController")
+
 const cors = require("cors")
 app.use(cors());
 app.use(express.json());
@@ -29,10 +27,10 @@ db.once('open', function () {
 });
 
 
-app.get("/todos", getTodos)
+app.get("/todos", todoFunctions.getTodos)
 
-app.post("/create-todos", createTodo)
+app.post("/create-todos", todoFunctions.createTodo)
 
-app.put("/update-todos/:id", updateTodo)
+app.put("/update-todos/:id", todoFunctions.updateTodo)
 
-app.delete("/delete-todos/:id", deleteTodo)
+app.delete("/delete-todos/:id", todoFunctions.deleteTodo)

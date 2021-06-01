@@ -40,7 +40,18 @@ const deleteTodo = async (req, res) =>{
     }
 }
 
-module.exports = createTodo;
-module.exports = getTodos;
-module.exports = updateTodo;
-module.exports = deleteTodo;
+// const todoFunctions = {
+//     createTodo,
+//     getTodos,
+//     updateTodo,
+//     deleteTodo,
+// }
+// // default exports
+// module.exports = todoFunctions;
+
+// named exports
+const myModule = module.exports;
+myModule.createTodo = createTodo;
+myModule.getTodos = getTodos;
+myModule.updateTodo = updateTodo;
+myModule.deleteTodo = deleteTodo;
